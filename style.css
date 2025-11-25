@@ -1,0 +1,250 @@
+:root {
+  --primary: #0a2342;
+  --accent: #ffb703;
+  --light-bg: #f7f7f7;
+  --dark-text: #222;
+  --light-text: #fff;
+  --card-bg: #ffffff;
+  --shadow-soft: rgba(0,0,0,0.08);
+  --shadow-strong: rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--light-bg);
+  color: var(--dark-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 70px;
+  background: var(--primary);
+  color: var(--light-text);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  height: 95vh;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1508780709619-79562169bc64') center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--light-text);
+  padding: 20px;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.btn {
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.3s;
+  animation: fadeIn 1.4s ease forwards;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity: 0;} to {opacity: 1;}
+}
+
+/* ---------------- SECTIONS ---------------- */
+.section {
+  padding: 90px 80px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: "";
+  width: 60%;
+  height: 4px;
+  background: var(--accent);
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.section p {
+  max-width: 900px;
+  margin: auto;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* ---------------- MINISTRIES GRID ---------------- */
+.grid-section .grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px var(--shadow-soft);
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px var(--shadow-strong);
+}
+
+/* ---------------- EVENTS LIST ---------------- */
+.events-list {
+  margin-top: 35px;
+  font-size: 20px;
+  list-style: none;
+}
+
+.events-list li {
+  margin: 15px 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.events-list li:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateX(8px);
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+  background: var(--primary);
+  color: var(--light-text);
+  padding: 35px 10px;
+  text-align: center;
+  margin-top: 60px;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
+}
+
+.footer p {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 18px 30px;
+  }
+  
+  .nav-links {
+    gap: 18px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .section {
+    padding: 70px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .grid-section .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 60px 25px;
+  }
+}

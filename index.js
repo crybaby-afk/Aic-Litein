@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const linkUrl = new URL(link.getAttribute('href'), location.href);
       const linkFile = linkUrl.pathname.split("/").pop() || "index.html";
+      // treat ministry detail pages (youth/women/men/children) as part of Ministries
+      const ministryPages = ['youth.html', 'women.html', 'men.html', 'children.html'];
       if (linkFile === currentFile) link.classList.add('active');
+      else if (ministryPages.includes(currentFile) && linkFile === 'ministries.html') link.classList.add('active');
       else link.classList.remove('active');
     } catch (e) {
       // ignore invalid URLs
